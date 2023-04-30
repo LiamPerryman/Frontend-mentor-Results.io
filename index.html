@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      font-family: 'Hanken Grotesk', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      letter-spacing: 1px
+      
+    }
+    /* Utilites */
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+    .num-dark{
+      color: var(--Dark-gray-blue);
+      font-weight: bolder;
+      font-size: 18px;
+      padding-right: 5px;
+
+    }
+
+    .num-light {
+      color: var(--Light-lavender);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* ## Colors */
+:root {
+/* ### Primary */
+
+--Light-red: hsl(0, 100%, 67%);
+--Orangey-yellow: hsl(39, 100%, 56%);
+--Green-teal: hsl(166, 100%, 37%);
+--Cobalt-blue: hsl(234, 85%, 45%);
+
+/* ## Gradients */
+
+--Light-slate-blue-background: hsl(252, 100%, 67%);
+--Light-royal-blue-background: hsl(241, 81%, 54%);
+
+--Violet-blue-circle: hsla(256, 72%, 46%, 1);
+--Persian-blue-circle: hsla(241, 72%, 46%, 0);
+
+/* ### Neutral */
+
+--White: hsl(0, 0%, 100%);
+--Pale-blue: hsl(221, 100%, 96%);
+--Light-lavender: hsl(241, 100%, 89%);
+--Dark-gray-blue: hsl(224, 30%, 27%);
+}
+
+p {
+  font-size: 18px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+.container {
+  display: flex;
+  max-width: 750px;
+  height: 500px;
+  background:white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px 10px var(--Pale-blue);
+ 
+}
+/* Results */
+.your-result {
+  margin:30px 0 30px 0;
+  color: var(--Light-lavender);
+  font-size: 13px;
+}
+.your-results {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  background: linear-gradient(
+   var(--Light-slate-blue-background),
+   var(--Light-royal-blue-background)) ;
+   border-radius: 0 30px 30px 0;
+
+}
+
+.result {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 55%;
+  border-radius: 50%;
+  background: linear-gradient(
+   var(--Violet-blue-circle)
+  ,var(--Persian-blue-circle));
+  margin-bottom: 35px;
+}
+
+.result-num {
+  display: flex;
+  font-size: 60px;
+  font-weight: bolder;
+  color: var(--White);
+}
+.result p {
+ font-size: 14px;
+  color: var(--Light-lavender);
+}
+
+.great {
+color: var(--White);
+font-size: 25px;
+margin-bottom: 20px;
+}
+
+.result-text {
+  color: var(--Light-lavender);
+  margin: 0 40px 0 40px;
+  line-height: 25px;
+}
+
+
+/* Summary */
+.Summary {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-start;
+  padding:35px ;
+
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  width:100%;
+  height: 60px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 0 15px 0 40px;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  left: 10px;
+}
+
+.summary-flex {
+  margin-bottom: 25px;
+}
+
+.btn {
+  width: 100%;
+}
+.btn button {
+  width: 100%;
+  height: 60px;
+  border-radius: 100px;
+  border: none;
+  background:var(--Dark-gray-blue);
+  color: var(--Pale-blue);
+  font-size: 18px;
+  transition: .3s ease-in;
+  cursor: pointer;
+} 
+.btn button:hover {
+  color: var(--Dark-gray-blue);
+  background-color: var(--Pale-blue);
+  
+}
+.visual {
+  margin-bottom: 30px;
+}
+/* Summary Color */
+
+.reaction {
+  background: hsl(0, 100%, 67%, .1);
+  color: var(--Light-red);
+}
+
+.memory {
+  background: hsl(39, 100%, 56%, .1);
+  color: var(--Orangey-yellow)
+}
+.verbal {
+  background:hsl(166, 100%, 37%,.1);
+  color: var(--Green-teal)
+}
+.visual {
+  background:hsl(234, 85%, 45%, .1);
+  color: var(--Cobalt-blue)
+}
+   /* Media Query */
+
+   @media screen and (max-width:640px){
+
+    body {
+  height: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+   
+    .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    height: 850px;
+    border-radius: 0 0 0 0;
+    box-shadow: 10px 10px 10px 10px var(--Pale-blue);
+    justify-content: center;
+    text-align: center;
+  
+    }
+    
+    /* Results */
+
+  .your-result {
+  margin:20px 0 20px 0;
+  color: var(--Light-lavender);
+  font-size: 13px;
+}
+    .your-results {
+    flex-direction: column;
+    height: 850px;
+    width: 100%;
+    border-radius:  0 0 30px 30px;
+    }
+
+    .result {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 40%;
+  border-radius: 50%;
+  background: linear-gradient(
+   var(--Violet-blue-circle)
+  ,var(--Persian-blue-circle));
+  margin-bottom: 10px;
+}
+
+.result-num {
+  display: flex;
+  font-size: 60px;
+  font-weight: bolder;
+  color: var(--White);
+}
+.result p {
+ font-size: 14px;
+  color: var(--Light-lavender);
+}
+
+.great {
+color: var(--White);
+font-size: 25px;
+margin-bottom: 10px;
+}
+
+.result-text {
+  color: var(--Light-lavender);
+  margin: 0 40px 0 40px;
+  line-height: 23px;
+  font-size: 10px
+}
+    
+.Summary {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  align-items: flex-start;
+  padding:35px ;
+
+}
+.box {
+  width:330px;
+}
+.icon {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+
+.summary-flex {
+  margin-bottom: 25px;
+}
+
+.btn {
+  width: 330px;
+}
+.btn button {
+  width: 100%;
+  height: 60px;
+  border-radius: 100px;
+  border: none;
+  background:var(--Dark-gray-blue);
+  color: var(--Pale-blue);
+  font-size: 18px;
+  transition: .3s ease-in;
+  cursor: pointer;
+} 
+}
+   
+  </style>
+</head>
+<body>
+  <article>
+    <div class="container">
+
+      <!-- Results -->
+
+  <div class="your-results">
+
+    <div class="your-result">
+      <h1>Your Result</h1>
+    </div>
+   <div class="result">
+      <p><span class="result-num">76</span> of 100</p>
+    </div>
+    <div class="great">
+        <h3>Great</h3>
+    </div>
+  <div class="result-text">
+        <p>You scored higher than 65% of the people who have taken these tests.</p>
+  </div>
+
+</div>
+
+
+    <!-- Summary -->
+
+  <div class="Summary">
+
+ <div class="summary-flex num-dark">
+  <h2>Summary</h2>
+ </div>
+
+  <div class="reaction box">
+    <p><img src="./assets/images/icon-reaction.svg" alt="" class="icon">Reaction</p>
+    <p class="num-light"><span class="num-dark">80</span> /  100</p>
+  </div>
+  <div class="memory box">
+    <p><img src="./assets/images/icon-memory.svg" alt="" class="icon">Memory</p>
+    <p class="num-light"><span class="num-dark">92</span> /  100</p>
+  </div>
+  <div class="verbal box">
+    <p><img src="./assets/images/icon-Verbal.svg" alt="" class="icon">Verbal</p>
+    <p class="num-light"><span class="num-dark">61</span> /  100</p>
+  </div>
+  <div class="visual box">
+    <p><img src="./assets/images/icon-Visual.svg" alt="" class="icon">Visual</p>
+    <p class="num-light"><span class="num-dark">72</span> /  100</p>
+  </div>
+  <div class="btn">
+    <button>Continue</button>
+  </div>
+</div>
+</div>
+ </article>
+
+  </div>
+</body>
+</html>
